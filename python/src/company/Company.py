@@ -3,6 +3,10 @@ from src.company import Employee, Gender
 
 class Company:
     def __init__(self,company_name: str, founder: Employee) -> None:
+        self._company_name = company_name
+        self._founder = founder
+        self._employee_book = {}
+        self._employee_book[founder.get_name()] = founder
         pass
 
     def get_company_name(self):

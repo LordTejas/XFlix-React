@@ -15,6 +15,10 @@ public class Company implements ICompany{
     
 
     private Company(String companyName, Employee founder) {
+        this.companyName = companyName;
+        this.founder = founder;
+        employeeBook = new HashMap<String,Employee>();
+        employeeBook.put(founder.getName(), founder);
     }
     
 

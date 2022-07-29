@@ -3,6 +3,10 @@ from src.company import Gender
 
 class Employee:
     def __init__(self,name: str , gender: Gender) -> None:
+        self._name = name
+        self._gender = gender
+        self._manager = None
+        self._direct_reports = {}
         pass
 
     def get_name(self):

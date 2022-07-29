@@ -13,6 +13,9 @@ public class Employee {
     private Map<String, Employee> directReports;
 
     public Employee(String name, Gender gender) {
+        this.name = name;
+        this.gender = gender;
+        directReports = new LinkedHashMap<String, Employee>();
     }
 
     public String getName() {
