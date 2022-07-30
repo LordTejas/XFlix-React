@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Author : Yakshit Jain
 # Copyright (c) Crio.Do
 # Script follows here:
