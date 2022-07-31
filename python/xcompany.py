@@ -34,6 +34,7 @@ def run(inputFile: str, outputFile: str) -> None:
                 company.register_employee(employee_name,gender)
                 w.write("EMPLOYEE_REGISTRATION_SUCCEEDED\n")
                 w.write("\n")
+                w.flush()
 
             elif tokens[0] == "ASSIGN_MANAGER":
                 w.write("ASSIGN_MANAGER :>\n")
@@ -42,6 +43,7 @@ def run(inputFile: str, outputFile: str) -> None:
                 company.assign_manager(employee_name,manager_name)
                 w.write("MANAGER_ASSIGNMENT_SUCCEEDED\n")
                 w.write("\n")
+                w.flush()
 
             elif tokens[0] == "GET_EMPLOYEE":
                 w.write("GET_EMPLOYEE :>\n")
@@ -53,6 +55,7 @@ def run(inputFile: str, outputFile: str) -> None:
                     w.write(e.__repr__())
                     w.write("\n")
                 w.write("\n")
+                w.flush()
                 
             elif tokens[0] == "GET_DIRECT_REPORTS":
                 w.write("GET_DIRECT_REPORTS :>\n")
@@ -61,6 +64,7 @@ def run(inputFile: str, outputFile: str) -> None:
                 w.write(eList.__repr__())
                 w.write("\n")
                 w.write("\n")
+                w.flush()
 
             elif tokens[0] == "GET_TEAMMATES":
                 w.write("GET_TEAMMATES :>\n")
@@ -68,8 +72,8 @@ def run(inputFile: str, outputFile: str) -> None:
                 eList = company.get_team_mates(employee_name)
                 w.write(eList.__repr__())
                 w.write("\n")
-                w.write("\n")             
-
+                w.write("\n")
+                w.flush()           
 
             elif tokens[0] == "DELETE_EMPLOYEE":
                 w.write("DELETE_EMPLOYEE :>\n")
@@ -77,6 +81,7 @@ def run(inputFile: str, outputFile: str) -> None:
                 company.delete_employee(employee_name)
                 w.write("EMPLOYEE_DELETION_SUCCEEDED\n")
                 w.write("\n")
+                w.flush()
 
             elif tokens[0] == "EMPLOYEE_HIERARCHY":
                 w.write("EMPLOYEE_HIERARCHY :>\n")
@@ -88,6 +93,7 @@ def run(inputFile: str, outputFile: str) -> None:
                         w.write("\t")
                     w.write("\n")
                 w.write("\n")
+                w.flush()
             else:
                 raise Exception("Invalid Command")
         f.close()

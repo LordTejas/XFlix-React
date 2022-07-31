@@ -51,6 +51,7 @@ public class XcompanyApplication {
                         company.registerEmployee(employeeName, Gender.valueOf(gender));
                         writer.write("EMPLOYEE_REGISTRATION_SUCCEEDED\n");
                         writer.write("\n");
+                        writer.flush();
 					}
 					break;
 
@@ -62,6 +63,7 @@ public class XcompanyApplication {
                         company.assignManager(employeeName, managerName);
                         writer.write("MANAGER_ASSIGNMENT_SUCCEEDED\n");
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
 
@@ -77,6 +79,7 @@ public class XcompanyApplication {
                             writer.write("\n");
                         }
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
                     case "GET_DIRECT_REPORTS":
@@ -87,6 +90,7 @@ public class XcompanyApplication {
                         writer.write(eList.toString());
                         writer.write("\n");
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
                     case "GET_TEAMMATES":
@@ -97,6 +101,7 @@ public class XcompanyApplication {
                         writer.write(eList.toString());
                         writer.write("\n");
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
                     case "DELETE_EMPLOYEE":
@@ -106,6 +111,7 @@ public class XcompanyApplication {
                         company.deleteEmployee(employeeName);
                         writer.write("EMPLOYEE_DELETION_SUCCEEDED\n");
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
                     case "EMPLOYEE_HIERARCHY":
@@ -121,6 +127,7 @@ public class XcompanyApplication {
                             writer.write("\n");
                         }
                         writer.write("\n");
+                        writer.flush();
 					}
                     break;
 

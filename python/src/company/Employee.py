@@ -28,7 +28,7 @@ class Employee:
         pass
 
     def __repr__(self) -> str:
-        return f'Employee [name="{self._name}", gender="{self._gender.value}"]'
+        return f'Employee [name={self._name}, gender={self._gender.value}]'
 
 
 

@@ -4,4 +4,4 @@
 # java -jar build/libs/example.jar INPUT_FILE=sample_input/input1.txt OUTPUT_FILE=out.txt
 
 # or
-./gradlew run -q --args="INPUT_FILE=sample_input/input1.txt OUTPUT_FILE=out.txt"
+./gradlew run -q --args="INPUT_FILE=sample_input/input2.txt OUTPUT_FILE=out.txt"

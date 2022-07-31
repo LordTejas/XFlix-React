@@ -11,12 +11,10 @@ class XcompanyTests(unittest.TestCase):
 
     def test_XcompanyApplication_assessment(self):
         # Arrange
-
         cwd = os.path.dirname(os.path.abspath(__file__))
-
-        inputFile = os.path.join(cwd,"input1.txt")
-        actualOutputFile = os.path.join(cwd,"output.txt")
-        expectedOutputFile = os.path.join(cwd,"output1.txt")
+        inputFile = os.path.join(cwd,"sample_input.txt")
+        actualOutputFile = os.path.join(cwd,"actual_output.txt")
+        expectedOutputFile = os.path.join(cwd,"sample_output.txt")
         # Act
         run(inputFile,actualOutputFile)
         # Assert

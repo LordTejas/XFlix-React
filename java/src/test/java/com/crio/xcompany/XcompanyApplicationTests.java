@@ -22,9 +22,9 @@ public class XcompanyApplicationTests {
     @Test
     public void XcompanyApplication_assessment() throws IOException{
         // Arrange
-        Path inputFile = Paths.get("src","test","resources","input1.txt");
-        Path actualOutputFile = Paths.get("src","test","resources","output.txt");
-        Path expectedOutputFile = Paths.get("src","test","resources","output1.txt");
+        Path inputFile = Paths.get("src","test","resources","sample_input.txt");
+        Path actualOutputFile = Paths.get("src","test","resources","actual_output.txt");
+        Path expectedOutputFile = Paths.get("src","test","resources","sample_output.txt");
         // Act
         XcompanyApplication.run(inputFile.toString(),actualOutputFile.toString());
         // Assert

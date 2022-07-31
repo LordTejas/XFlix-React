@@ -6,7 +6,7 @@
 
 We have provided scripts to execute the code. 
 
-Use `run.sh` if you are Linux/Unix/macOS Operating systems and `run.bat` if you are on Windows.  Both the files run the commands silently and prints only output from the input file `sample_input/input1.txt`. You are supposed to add the input commands in the file from the appropriate problem statement. 
+Use `run.sh` if you are Linux/Unix/macOS Operating systems and `run.bat` if you are on Windows.  Both the files run the commands silently and results output in `out.txt` from the input file `sample_input/input1.txt`. You are supposed to add the input commands in the file from the appropriate problem statement. 
 
 Internally both the scripts run the following commands 
 
