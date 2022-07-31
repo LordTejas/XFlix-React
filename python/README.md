@@ -10,7 +10,6 @@ Use `run.sh` if you are Linux/Unix/macOS Operating systems and `run.bat` if you 
 
 Internally both the scripts run the following commands 
 
- * `pip3 install -r requirements.txt` - This will install the dependencies mentioned in the requirement.file
  * `python3 -m app INPUT_FILE=sample_input/input1.txt OUTPUT_FILE=out.txt` - This will run the solution passing in the sample input file as the command line argument
 
 If you are providing a solution without using the build file, we want you to name your Main file as geektrust.py. This is the file that will contain your main method.
@@ -19,11 +18,7 @@ If you are providing a solution without using the build file, we want you to nam
 
  # Running the code for multiple test cases
 
- Please fill `input1.txt` and `input2.txt` with the input commands and use those files in `run.bat` or `run.sh`. Replace `python3 -m app INPUT_FILE=sample_input/input1.txt OUTPUT_FILE=out.txt` with `python3 -m app INPUT_FILE=sample_input/input2.txt OUTPUT_FILE=out.txt` to run the test case from the second file. 
-
- # Running the code for multiple test cases
-
- Please fill `input1.txt` and `input2.txt` with the input commands and use those files in `run.bat` or `run.sh`. Replace `python3 -m qcontest sample_input/input1.txt OUTPUT_FILE=out.txt` with `python3 -m qcontest sample_input/input2.txt OUTPUT_FILE=out.txt` to run the test case from the second file. 
+ Please fill `input1.txt` and `input2.txt` with the input commands and use those files in `run.bat` or `run.sh`. Replace `python3 -m xcompany INPUT_FILE=sample_input/input1.txt OUTPUT_FILE=out.txt` with `python3 -m xcompany INPUT_FILE=sample_input/input2.txt OUTPUT_FILE=out.txt` to run the test case from the second file.
 
  # How to execute the unit tests
 
