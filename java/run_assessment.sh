@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-./gradlew clean test --no-daemon
+./gradlew clean test -q --no-daemon
