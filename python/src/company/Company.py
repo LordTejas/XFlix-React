@@ -8,31 +8,14 @@ class Company:
         self._founder = founder
         self._employee_book = {}
         self._employee_book[founder.get_name()] = founder
-        pass
 
     def get_company_name(self) -> str:
         self._company_name
 
-    def register_employee(self, employee_name: str, gender: Gender) -> Employee:
-        pass
+    # TODO: CRIO_TASK_MODULE_XCOMPANY
+    # Please define all the methods required here as mentioned in the XCompany BuildOut Milestone before implementing the logic.
+    # This will ensure that the project can be compiled successfully.
 
-    def assign_manager(self,employee_name : str, manager_name: str) -> None:
-        pass
-
-    def get_employee(self,employee_name) -> Employee:
-        pass
-
-    def get_direct_reports(self,manager_name: str) -> List[Employee]:
-        pass
-
-    def get_team_mates(self,employee_name: str) -> List[Employee]:
-        pass
-
-    def delete_employee(self,employee_name: str) -> None:
-        pass
-
-    def get_employee_hierarchy(self,manager_name: str) -> List[List[Employee]]:
-        pass
 
 
 

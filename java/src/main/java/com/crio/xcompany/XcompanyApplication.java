@@ -11,7 +11,6 @@ import java.util.List;
 import com.crio.xcompany.company.Company;
 import com.crio.xcompany.company.Employee;
 import com.crio.xcompany.company.Gender;
-import com.crio.xcompany.company.ICompany;
 
 public class XcompanyApplication {
 
@@ -28,7 +27,7 @@ public class XcompanyApplication {
     public static void run(String inputFile, String outputFile){
 
         // Initialize Company
-        ICompany company = Company.create("Crio.Do",new Employee("Rathina",Gender.MALE));
+        Company company = Company.create("Crio.Do",new Employee("Rathina",Gender.MALE));
 
         
 
@@ -140,6 +139,5 @@ public class XcompanyApplication {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
