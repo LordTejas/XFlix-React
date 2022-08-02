@@ -65,8 +65,6 @@ public class Company implements ICompany{
     public void deleteEmployee(String employeeName) {
     }
 
-
-    // https://www.geeksforgeeks.org/level-order-traversal-of-n-ary-tree/
     @Override
     public List<List<Employee>> getEmployeeHierarchy(String managerName) {
      return Collections.emptyList();

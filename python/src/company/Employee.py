@@ -1,3 +1,4 @@
+from typing import List
 from src.company import Gender
 
 
@@ -9,22 +10,22 @@ class Employee:
         self._direct_reports = {}
         pass
 
-    def get_name(self):
+    def get_name(self) -> str:
         return self._name
 
-    def get_gender(self):
+    def get_gender(self) -> str:
         return self._gender
 
-    def get_direct_reports(self):
+    def get_direct_reports(self) -> List:
         pass
 
-    def get_team_mates(self):
+    def get_team_mates(self) -> List:
         pass
 
-    def assign_manager(self,employee):
+    def assign_manager(self,employee) -> None:
         pass
 
-    def _add_direct_report(self,employee):
+    def _add_direct_report(self,employee) -> None:
         pass
 
     def __repr__(self) -> str:
