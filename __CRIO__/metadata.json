@@ -1,4 +1,5 @@
-{
-  "module_id": "ME_BUILDOUT_XFLIX_REACT_MODULE_REACT",
-  "me_id": "ME_BUILDOUT_XFLIX_REACT"
-}
+{ 
+    "module_id": "ME_BUILDOUT_XCOMPANY_MODULE_XCOMPANY",
+    "module_language": "PYTHON",
+    "me_id": "ME_BUILDOUT_XCOMPANY"
+ }
