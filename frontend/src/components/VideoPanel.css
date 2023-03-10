@@ -1,0 +1,17 @@
+.video-panel {
+    background-color: black;
+    color: white;
+}
+
+.video-grid {
+    padding: 5vh 10vw 5vh;
+}
+
+.video-tab {
+    height: 14rem;
+    background-color: lightgreen;
+    border: 2px solid green;
+    vertical-align: middle;
+    align-items: center;
+}
+
