@@ -1,17 +1,56 @@
 .video-panel {
+    box-sizing: border-box;
     background-color: black;
     color: white;
+    padding: 8vh 8vw;
 }
 
 .video-grid {
-    padding: 5vh 10vw 5vh;
+    /* margin: 2rem; */
 }
 
 .video-tab {
-    height: 14rem;
-    background-color: lightgreen;
-    border: 2px solid green;
-    vertical-align: middle;
-    align-items: center;
+    /* height: 10rem; */
+    box-sizing: border-box;
+    /* background-color: lightgreen; */
+    /* border: 2px solid green; */
+    /* vertical-align: middle;
+    align-items: center; */
 }
 
+.video-card {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.video-card-thumbnail {
+    border-radius: 8px;
+}
+
+.video-card-thumbnail:hover {
+    filter: brightness(0.6);
+}
+
+.video-card-genre {
+    align-self: flex-start;
+}
+
+.video-card-genre:hover {
+    color: lime;
+}
+
+.video-card-title {
+    align-self: flex-start;
+}
+
+.video-card-title:hover {
+    color: yellow;
+}
+
+.video-thumbnail {
+    height: 8rem;
+    width: 100%;
+    object-fit: fill;
+}

@@ -47,7 +47,7 @@ const Header = ({ children, showInstallButton }) => {
   
       return (
         <Box sx={{ flexGrow: 1 }} className="main-header">
-          <AppBar position="static">
+          <AppBar position="static" color="transparent">
             <Toolbar
             // disableGutters
             >

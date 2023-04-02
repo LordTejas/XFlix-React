@@ -1,8 +1,10 @@
 .main-header {
+    background-color: #222 !important;
     min-height: 4rem;
+    color: white;
 }
 
 .install-button {
     color: white !important;
-    background-color: lightskyblue !important;
+    background-color: skyblue !important;
 }
