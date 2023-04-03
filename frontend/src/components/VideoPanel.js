@@ -2,6 +2,7 @@ import './VideoPanel.css';
 import React, { useEffect, useState } from "react";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,7 +12,6 @@ import CardContent from '@mui/material/CardContent';
 
 
 export default function VideoPanel({videos, c}) {
-
 
     const VideoCard = ({id, title, upload_date, thumbnail}) => {
 
@@ -33,19 +33,26 @@ export default function VideoPanel({videos, c}) {
             //     </CardActionArea>
             // </Card>
 
-            <Box className="video-card">
-                <img
-                // sx={{ height: 140 }}
-                src={thumbnail}
-                alt="video"
-                className="video-card-thumbnail"
-                />
+            <Link
+            href={`/video/${id}`}>
+                <Box
+                sx={{
+                    color: 'common.white',
+                }} 
+                className="video-card">
+                    <img
+                    // sx={{ height: 140 }}
+                    src={thumbnail}
+                    alt="video"
+                    className="video-card-thumbnail"
+                    />
 
-                <Typography variant="h6" className="video-card-genre"> {title} </Typography>
+                    <Typography variant="h6" className="video-card-title"> {title} </Typography>
 
-                <Typography variant="caption" className="video-card-title"> {upload_date} </Typography>
+                    <Typography variant="caption" className="video-card-timestamp"> {upload_date} </Typography>
 
-            </Box>
+                </Box>
+            </Link>
         );
     }
 
@@ -65,9 +72,14 @@ export default function VideoPanel({videos, c}) {
     }
 
     return (
-        <Box className="video-panel">
+        <Box
+        className="video-panel"
+        sx={{
+            bgcolor: 'primary.dark', 
+        }}
+        >
             <Grid container spacing={2} className="video-grid">
-                {videos.map(videoTab)}
+                {videos && videos.map(videoTab)}
             </Grid>
         </Box>
     );

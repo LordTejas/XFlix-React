@@ -1,22 +1,18 @@
 import { createTheme } from "@mui/material/styles";
+import { colors, withTheme } from "@mui/material";
 
 const theme = createTheme({
-  typography: {
-    fontFamily: "Lato"
-  },
   palette: {
     primary: {
-      light: "#fff",
-      main: "#222",
-      dark: "#111",
-      contrastText: "#fff",
-      button: "##00b3ff",
+      main: colors.grey[900],
     },
     secondary: {
-        main: "#525659",
-        dark: "#323639",
-        contrastText: "#fff",
-        button: "##00b3ff",
+      main: colors.grey[800],
+    },
+    button: {
+      main: colors.blue[500],
+      dark: colors.blue[700],
+      contrastText: '#ffffff',
     }
   },
 });

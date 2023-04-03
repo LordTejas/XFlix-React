@@ -1,0 +1,53 @@
+.video-player {
+    width: 100%;
+    padding: 0 16rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: centert;
+    /* align-items: center; */
+
+}
+
+
+.video-action-area {
+
+    margin-top: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.video-action-description {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.video-action-vote {
+    
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.video-frame {
+    width: 100%;
+    height: 28rem;
+}
+
+.video-title {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.video-desc {
+    align-self: flex-start;
+    text-align: left;
+}

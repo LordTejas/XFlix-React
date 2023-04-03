@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import XflixLogo from "../assets/logo.png";
 
-const Header = ({ children, showInstallButton }) => {
+const Header = ({ children, showUplaodForm, setUploadForm}) => {
 
     const Logo = () => (
       <Avatar
@@ -21,16 +21,23 @@ const Header = ({ children, showInstallButton }) => {
       />
     );
   
-  
+
     const UploadButton = () => (
       <Button
+      sx={{
+        color: 'button.contrastText',
+        bgcolor: 'button.main',
+        "&:hover": {
+          bgcolor: 'button.dark',
+        },
+      }}
       className="install-button"
       startIcon={<FileUploadIcon />}
       variant="text"
       type="button"
       aria-label="menu"
       // style={{color: "white", backgroundColor: "lime"}}
-      onClick={() => {console.log("Uploading...")}}
+      onClick={() => {setUploadForm(true);}}
       >
         Upload
       </Button>
@@ -46,8 +53,14 @@ const Header = ({ children, showInstallButton }) => {
     // );
   
       return (
-        <Box sx={{ flexGrow: 1 }} className="main-header">
-          <AppBar position="static" color="transparent">
+        <Box 
+        sx={{ 
+          flexGrow: 1,
+          bgcolor: 'primary.main', 
+        }}
+        className="main-header"
+        >
+          <AppBar position="static">
             <Toolbar
             // disableGutters
             >
@@ -62,7 +75,7 @@ const Header = ({ children, showInstallButton }) => {
 
               {children}
 
-              {showInstallButton && <UploadButton />}
+              {setUploadForm && <UploadButton />}
             
             </Toolbar>
 

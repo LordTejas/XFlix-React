@@ -3,6 +3,8 @@ import Header from './Header';
 import GenrePanel from './GenrePanel';
 import VideoPanel from './VideoPanel';
 import VideoPlayer from './VideoPlayer';
+import UploadForm from './UploadForm';
+import SearchBar from './SearchBar';
 import Box from '@mui/material/Box';
 import { useState, useEffect } from 'react';
 
@@ -19,6 +21,8 @@ function Home()  {
     const [currentGenres, setCurrentGenres] = useState([genres[0]]);
     const [currentRatings, setCurrentRatings] = useState([ratings[0]]);
     const [sortByUploadDate, setSortByUploadDate] = useState(true);
+
+    const [showUploadForm, setUploadForm] = useState(false);
     
   
 
@@ -42,6 +46,8 @@ function Home()  {
       
       let v = Videos.data;
       
+      console.log(v);
+
       v = v.filter(getFilteredVideos);
       if (sortByUploadDate) {
         sortVideosByUploadDate(v);
@@ -52,13 +58,13 @@ function Home()  {
       return v;
     }
 
-    useEffect((currentGenres) => {
-      setVideos(applyFilters(Videos.data));
-    })
+    // useEffect((currentGenres) => {
+    //   setVideos(applyFilters(Videos.data));
+    // })
 
-    useEffect((sortByUploadDate) => {
+    useEffect(() => {
       setVideos(applyFilters(Videos.data));
-    })
+    }, [currentGenres, sortByUploadDate]);
 
     /*
     Load Videos from API
@@ -70,9 +76,14 @@ function Home()  {
 
 
     return (
-      <Box className="home-panel">
+      <Box 
+      className="home-panel"
+      sx={{
+        bgcolor: 'primary.dark', 
+      }}
+      >
         
-        <Header showInstallButton />
+        <Header children={SearchBar} showUplaodForm={showUploadForm} setUploadForm={setUploadForm} />
         
         <GenrePanel
         genres={genres}
@@ -90,7 +101,7 @@ function Home()  {
         c={currentGenres}
         />
 
-        {(videos) && VideoPlayer(videos[0])}
+        {showUploadForm && UploadForm(setUploadForm)}
 
       </Box>
     );

@@ -1,20 +1,105 @@
-import './VideoPage.css';
+import './VideoPlayer.css';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { useState, useEffect } from 'react';
 
 import Videos from '../data/videos';
 import { alignProperty } from '@mui/material/styles/cssUtils';
+import { Typography } from '@mui/material';
 
 
-function VideoPlayer({title, upload_date, url}) {
+function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", rating="12+"}) {
 
+    const fetchEmbeddedUrl = (url) => {
+
+        let newUrl = "https://www.youtube.com/embed/";
+
+        let extractedVideoHash = url.match(/watch\?v=(?<vHash>[\w-]+)&/);
+
+        newUrl += extractedVideoHash.groups["vHash"];
+
+        // console.log(url, newUrl, extractedVideoHash.groups);
+
+        return newUrl
+    }
+
+    const UpVoteButton = () => (
+        <Button
+        sx={{
+            color: 'common.white',
+            bgcolor: 'button.main',
+        }} 
+        variant="contained"
+        startIcon={<ThumbUpIcon />}
+        >
+        {upVotes}
+        </Button>
+    );
+
+    const DownVoteButton = () => (
+        <Button 
+        sx={{
+            marginLeft: '1rem',
+            color: 'common.white',
+            bgcolor: 'button.main',
+        }} 
+        variant="contained"
+        startIcon={<ThumbDownIcon />}
+        > 
+        {downVotes}
+        </Button>
+    );
 
     return (
-        <Box>
-            <iframe width="420" height="315"
-            src={url}
-            title={title}>
+        <Box 
+        sx={{
+            color: 'primary.contrastText',
+            bgcolor: 'primary.dark'
+        }}
+        className="video-player"
+        py={4}
+        >
+            
+            <iframe 
+            className="video-frame"
+            src={fetchEmbeddedUrl(url)}
+            title={title}
+            frameBorder="0" 
+            allowFullScreen 
+            ng-show="showvideo">
             </iframe>
+
+            <Box
+            className="video-action-area"
+            >
+            
+                <Box
+                className="video-action-description"
+                >
+
+                    <Typography variant="h5" className="video-title">{title}</Typography>
+
+                    <Typography variant="caption" className="video-desc">{rating + " • " + upload_date}</Typography>
+
+                </Box>
+
+            
+
+                <Box
+                className="video-action-vote"
+                >
+                    <UpVoteButton />
+                    <DownVoteButton />
+                </Box>
+
+            </Box>
+
+            
+
+
+
         </Box>
     );
 }
