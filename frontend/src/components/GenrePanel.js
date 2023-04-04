@@ -8,23 +8,11 @@ export default function GenrePanel({genres,
     ratings,
     currentGenres,
     setCurrentGenres, 
-    currentRatings, 
-    setCurrentRatings, 
+    currentRating, 
+    setCurrentRating, 
     sortByUploadDate, 
     setSortByUploadDate}) {
 
-    // const [currentGenres, setCurrentGenres] = useState([genres[0]]);
-    // const [currentRatings, setCurrentRatings] = useState([ratings[0]]);
-    // const [sortByUploadDate, setSortByUploadDate] = useState(true);
-
-    // Handle sortByUploadDate Effect
-    // useEffect((sortByUploadDate) => {
-    //     if (sortByUploadDate) {
-
-    //     } else {
-
-    //     }
-    // })
 
     const genreItem = (genre) => {
 
@@ -34,14 +22,6 @@ export default function GenrePanel({genres,
             className={(currentGenres.includes(genre)) ? "radio-item-selected" : "radio-item"}
             id={`genre-${genre}`}
             key={genre}
-            // onClick={(e) => {
-            //     const genre = e.target.id.split('-')[1];
-            //     if (currentGenres.includes(genre)) {
-            //         setCurrentGenres(currentGenres.filter(currGenre => currGenre !== genre));
-            //     } else {
-            //         setCurrentGenres(currentGenres => [ ...currentGenres, genre ]);
-            //     }
-            // }}
             >
             {genre.charAt(0).toUpperCase() + genre.slice(1)}
             </Box>
@@ -52,18 +32,11 @@ export default function GenrePanel({genres,
 
         return (
             <Box
-            className={(currentRatings.includes(rating)) ? "radio-item-selected" : "radio-item"}
+            className={(currentRating === rating) ? "radio-item-selected" : "radio-item"}
             id={`rating-${rating}`}
             key={rating}
-            // onClick={(e) => {
-            //     const rating = e.target.id.split('-')[1];
-            //     if (currentRatings.includes(rating)) {
-            //         setCurrentRatings(currentRatings.filter(currRating => currRating !== rating));
-            //     } else {
-            //         setCurrentRatings(currentRatings => [ ...currentRatings, rating ]);
-            //     }
-            // }}
             >
+
             {rating.charAt(0).toUpperCase() + rating.slice(1)}
             </Box>
         );
@@ -102,11 +75,7 @@ export default function GenrePanel({genres,
             <Box className="radio-container"
             onClick={(e) => {
                 const rating = e.target.id.split('-')[1];
-                if (currentRatings.includes(rating)) {
-                    setCurrentRatings(currentRatings.filter(currRating => currRating !== rating));
-                } else {
-                    rating && setCurrentRatings(currentRatings => [ ...currentRatings, rating ]);
-                }
+                rating && setCurrentRating(rating);
             }}
             >
                 {ratings.map(ratingItem)}

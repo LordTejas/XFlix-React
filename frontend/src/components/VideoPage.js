@@ -1,45 +1,69 @@
 import './VideoPage.css';
 import Header from './Header';
+import VideoPanel from './VideoPanel';
 import VideoPlayer from './VideoPlayer';
 import Box from '@mui/material/Box';
 import { useState, useEffect } from 'react';
-import {useLocation, useParams} from "react-router-dom";
-
-import Videos from '../data/videos';
+import {useParams} from "react-router-dom";
+import axios from 'axios';
+import config from '../ipConfig.json';
 
 
 function VideoPage() {
 
     const [video, setVideo] = useState(null);
+    const [videos, setVideos] = useState([]);
     const params = useParams();
 
-    const findVideoById = (pk) => {
-        const videos = Videos.data;
+    const findVideoById = async (pk) => {
+        const videoUrl = `${config.endpoint}/v1/videos/${pk}`;
 
-        const n = videos.length;
-        if (!n) return null;
+        try {
+            const v = await axios.get(videoUrl);
 
-        let i = 0;
-        while (i < n) {
-            if (videos[i].id === pk) return videos[i];
-            i++;
+            return v.data;
+        } catch(e) {
+            return null;
         }
-
-        return null;
     };
 
-
     // Load Video
-    useEffect(() => {
-        const pk = Number.parseInt(params.videoId);
-        setVideo(findVideoById(pk));
+    useEffect(async () => {
+        const pk = params.videoId;
+        setVideo(await findVideoById(pk));
     }, []);
+
+    useEffect(async () => {
+        
+        const fetchVideosByGenre = async (genre) => {
+            const endUrl = `${config.endpoint}/v1/videos?genres=${genre}`;
+            
+            try {
+                const v = await axios.get(endUrl);
+                console.log(genre, v);
+
+                setVideos(v.data.videos);
+                
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        if (video) {
+            const genre = video.genre;
+            fetchVideosByGenre(genre);
+        }
+
+    }, [video]);
+
 
     return (
         <Box className="video-page">
             <Header />
 
             {video && VideoPlayer(video)}
+
+            <VideoPanel videos={videos} />
 
         </Box>
     );

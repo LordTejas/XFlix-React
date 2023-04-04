@@ -10,7 +10,7 @@ import { alignProperty } from '@mui/material/styles/cssUtils';
 import { Typography } from '@mui/material';
 
 
-function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", rating="12+"}) {
+function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
 
     const fetchEmbeddedUrl = (url) => {
 
@@ -34,7 +34,7 @@ function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", ra
         variant="contained"
         startIcon={<ThumbUpIcon />}
         >
-        {upVotes}
+        {votes.upVotes}
         </Button>
     );
 
@@ -48,7 +48,7 @@ function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", ra
         variant="contained"
         startIcon={<ThumbDownIcon />}
         > 
-        {downVotes}
+        {votes.downVotes}
         </Button>
     );
 
@@ -64,7 +64,7 @@ function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", ra
             
             <iframe 
             className="video-frame"
-            src={fetchEmbeddedUrl(url)}
+            src={"https://" + videoLink}
             title={title}
             frameBorder="0" 
             allowFullScreen 
@@ -81,11 +81,9 @@ function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", ra
 
                     <Typography variant="h5" className="video-title">{title}</Typography>
 
-                    <Typography variant="caption" className="video-desc">{rating + " • " + upload_date}</Typography>
+                    <Typography variant="caption" className="video-desc">{contentRating + " • " + releaseDate}</Typography>
 
                 </Box>
-
-            
 
                 <Box
                 className="video-action-vote"
@@ -95,11 +93,7 @@ function VideoPlayer({title, upload_date, url, upVotes="12k", downVotes="1k", ra
                 </Box>
 
             </Box>
-
             
-
-
-
         </Box>
     );
 }

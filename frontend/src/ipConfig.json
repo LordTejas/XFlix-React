@@ -1,1 +1,4 @@
-{ "workspaceIp": "localhost" }
+{
+  "workspaceIp": "localhost",
+  "endpoint": "https://560fc15d-411a-41cf-bd2a-fc042b638f6b.mock.pstmn.io"
+}

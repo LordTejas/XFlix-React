@@ -11,9 +11,9 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 
 
-export default function VideoPanel({videos, c}) {
+export default function VideoPanel({videos}) {
 
-    const VideoCard = ({id, title, upload_date, thumbnail}) => {
+    const VideoCard = ({_id, title, releaseDate, contentRating, previewImage}) => {
 
         return (
 
@@ -34,22 +34,22 @@ export default function VideoPanel({videos, c}) {
             // </Card>
 
             <Link
-            href={`/video/${id}`}>
+            href={`/video/${_id}`}>
                 <Box
                 sx={{
                     color: 'common.white',
-                }} 
+                }}
                 className="video-card">
                     <img
                     // sx={{ height: 140 }}
-                    src={thumbnail}
+                    src={previewImage}
                     alt="video"
                     className="video-card-thumbnail"
                     />
 
                     <Typography variant="h6" className="video-card-title"> {title} </Typography>
 
-                    <Typography variant="caption" className="video-card-timestamp"> {upload_date} </Typography>
+                    <Typography variant="caption" className="video-card-timestamp"> {contentRating} • {releaseDate} </Typography>
 
                 </Box>
             </Link>
@@ -64,7 +64,7 @@ export default function VideoPanel({videos, c}) {
             md={4}
             lg={3}
             className="video-tab"
-            key={video.id}
+            key={video._id}
             >
                {VideoCard(video)}
             </Grid>
