@@ -1,6 +1,7 @@
 import './VideoPlayer.css';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { useState, useEffect } from 'react';
@@ -30,6 +31,9 @@ function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
         sx={{
             color: 'common.white',
             bgcolor: 'button.main',
+            "&:hover": {
+                bgcolor: 'button.dark',
+              },
         }} 
         variant="contained"
         startIcon={<ThumbUpIcon />}
@@ -44,6 +48,9 @@ function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
             marginLeft: '1rem',
             color: 'common.white',
             bgcolor: 'button.main',
+            "&:hover": {
+                bgcolor: 'button.dark',
+              },
         }} 
         variant="contained"
         startIcon={<ThumbDownIcon />}
@@ -56,7 +63,7 @@ function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
         <Box 
         sx={{
             color: 'primary.contrastText',
-            bgcolor: 'primary.dark'
+            bgcolor: 'primary.dark', 
         }}
         className="video-player"
         py={4}
@@ -73,6 +80,9 @@ function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
 
             <Box
             className="video-action-area"
+            sx={{
+                borderBottom: "1px solid white",
+            }}
             >
             
                 <Box
@@ -92,7 +102,9 @@ function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
                     <DownVoteButton />
                 </Box>
 
+
             </Box>
+
             
         </Box>
     );

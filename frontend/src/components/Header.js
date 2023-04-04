@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import XflixLogo from "../assets/logo.png";
 
-const Header = ({ children, showUplaodForm, setUploadForm}) => {
+const Header = ({ children, handleOpenUploadForm, showUploadButton}) => {
 
     const Logo = () => (
       <Avatar
@@ -37,7 +37,7 @@ const Header = ({ children, showUplaodForm, setUploadForm}) => {
       type="button"
       aria-label="menu"
       // style={{color: "white", backgroundColor: "lime"}}
-      onClick={() => {setUploadForm(true);}}
+      onClick={handleOpenUploadForm}
       >
         Upload
       </Button>
@@ -75,7 +75,7 @@ const Header = ({ children, showUplaodForm, setUploadForm}) => {
 
               {children}
 
-              {setUploadForm && <UploadButton />}
+              {showUploadButton && <UploadButton />}
             
             </Toolbar>
 

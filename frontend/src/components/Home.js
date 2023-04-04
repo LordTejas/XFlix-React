@@ -23,6 +23,16 @@ function Home()  {
 
     const [showUploadForm, setUploadForm] = useState(false);
 
+
+    function handleOpenUploadForm() {
+      setUploadForm(true);
+    };
+
+    function handleCloseUploadForm() {
+      setUploadForm(false);
+    };
+
+
     const fetchVideos = async () => {
       const videosUrl = `${config.endpoint}/v1/videos?genres=${currentGenres}&contentRating=${encodeURIComponent(currentRating)}`
 
@@ -98,7 +108,7 @@ function Home()  {
       }}
       >
         
-        <Header children={SearchBar} showUplaodForm={showUploadForm} setUploadForm={setUploadForm} />
+        <Header children={SearchBar} handleOpenUploadForm={handleOpenUploadForm} showUploadButton />
         
         <GenrePanel
         genres={genres}
@@ -115,7 +125,7 @@ function Home()  {
         videos={videos}
         />
 
-        {showUploadForm && UploadForm(setUploadForm)}
+        {showUploadForm && <UploadForm open={showUploadForm} handleClose={handleCloseUploadForm} />}
 
       </Box>
     );

@@ -1,7 +1,7 @@
 .video-player {
     height: 80vh;
     width: 100%;
-    padding: 0 16rem;
+    padding: 0 8rem;
 
     display: flex;
     flex-direction: column;
