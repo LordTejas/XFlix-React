@@ -22,6 +22,7 @@ specifiers:
   react-router-dom: ^6.6.2
   react-scripts: 5.0.0
   typescript: ^3.2.1
+  uuid: ^9.0.0
   web-vitals: ^2.1.4
 
 dependencies:
@@ -46,6 +47,7 @@ dependencies:
   react-router-dom: 6.6.2_sfoxds7t5ydpegc3knd667wn6m
   react-scripts: 5.0.0_deuju35dt7pt275dspkhhyn42y
   typescript: 3.9.10
+  uuid: 9.0.0
   web-vitals: 2.1.4
 
 packages:
@@ -10230,6 +10232,11 @@ packages:
 
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
     dev: false
 

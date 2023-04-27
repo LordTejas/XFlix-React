@@ -65,7 +65,6 @@ function Home()  {
       setUploadForm(false);
     };
 
-
     const fetchVideos = async () => {
       const videosUrl = `${config.endpoint}/v1/videos?genres=${currentGenres}&contentRating=${encodeURIComponent(currentRating)}`
 
@@ -139,7 +138,7 @@ function Home()  {
         videos={search.length === 0 ? videos : searchResults}
         />
 
-        {showUploadForm && <UploadForm open={showUploadForm} handleClose={handleCloseUploadForm} />}
+        {showUploadForm && <UploadForm open={showUploadForm} handleClose={handleCloseUploadForm} videos={videos} setVideos={setVideos} />}
 
       </Box>
     );

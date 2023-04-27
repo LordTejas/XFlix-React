@@ -14,34 +14,37 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
-import dayjs from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
-export default function UploadForm({open, handleClose}) {
-
-    const today = dayjs();
-    const yesterday = dayjs().subtract(1, 'day');
-    const todayStartOfTheDay = today.startOf('day');  
+export default function UploadForm({open, handleClose, videos, setVideos}) {
 
     const genres = ["Education", "Sports", "Movies", "Comedy", "Lifestyle"];
     const ratings = ["Anyone", "7+", "12+", "16+", "18+"];
 
+    const genrateUuid = () => {
+      return new Date()
+    }
+
     const [formData, setFormData] = useState({
+      id: uuidv4(),
       title: "",
       videoLink: "",
       previewImage: "",
       genre: "",
       contentRating: "Anyone",
-      releaseDate: today,
+      releaseDate: new Date().toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'short', year: 'numeric'
+      }),
+      "votes": {
+        "upVotes": 0,
+        "downVotes": 0,
+        },
     });
 
 
     const updateFormData = (data) => {
         let newData = {...formData, ...data};
-        console.log(newData);
+        // console.log(newData);
         setFormData(newData);
     }
 
@@ -68,6 +71,11 @@ export default function UploadForm({open, handleClose}) {
     const handleReleaseDateChange = (e) => {
       console.log(e.target.value);
       updateFormData({"releaseDate": e.target.value});
+    }
+
+    function handleUploadFormEvent() {
+      setVideos([...videos, formData]);
+      handleClose();
     }
     
     const SelectGenres = () => (
@@ -106,14 +114,14 @@ export default function UploadForm({open, handleClose}) {
     );
 
     const SelectReleaseDate = () => (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-            views={['year', 'month', 'day']}
-            value={formData.releaseDate}
-            onChange={handleReleaseDateChange}
-            disablePast
-            />
-        </LocalizationProvider>
+      <TextField
+      required
+      id="outlined-basic"
+      label="Date"
+      variant="outlined"
+      helperText="The Date of the video"
+      value={formData.releaseDate}
+      />
     );
 
 
@@ -199,7 +207,7 @@ export default function UploadForm({open, handleClose}) {
                 bgcolor: "button.success.dark",
               },
             }}
-            onClick={handleClose}
+            onClick={handleUploadFormEvent}
           >
             UPLOAD VIDEO
           </Button>
