@@ -1,34 +1,39 @@
-import './Header.css';
-import Avatar from '@mui/material/Avatar';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
-import XflixLogo from "../assets/logo.png";
+import "./Header.css";
+import Avatar from "@mui/material/Avatar";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import XflixLogo from "../assets/X.png";
 
-const Header = ({ children, handleOpenUploadForm, showUploadButton}) => {
+const Header = ({ children, handleOpenUploadForm, showUploadButton }) => {
+  const Logo = () => (
+    <Link
+    href="/">
+      <Stack direction="row" justifyContent="center">
+        <Avatar
+          alt="XFlix"
+          src={XflixLogo}
+          variant="square"
+          style={{ height: "3.2rem", width: "3.2rem" }}
+          aria-label="menu"
+        />
+        <Typography component="div" variant="h3" color="white">
+          FLIX
+        </Typography>
+      </Stack>
+    </Link>
+  );
 
-    const Logo = () => (
-      <Avatar
-      alt="XFlix" 
-      src={XflixLogo} 
-      variant="square"
-      style={{height: "3rem", width: "3rem"}}
-      aria-label="menu"
-      sx={{ mr: 2 }}
-      />
-    );
-  
-
-    const UploadButton = () => (
-      <Button
+  const UploadButton = () => (
+    <Button
       sx={{
-        color: 'button.contrastText',
-        bgcolor: 'button.main',
+        color: "button.contrastText",
+        bgcolor: "button.main",
         "&:hover": {
-          bgcolor: 'button.dark',
+          bgcolor: "button.dark",
         },
       }}
       className="install-button"
@@ -38,50 +43,37 @@ const Header = ({ children, handleOpenUploadForm, showUploadButton}) => {
       aria-label="menu"
       // style={{color: "white", backgroundColor: "lime"}}
       onClick={handleOpenUploadForm}
-      >
-        Upload
-      </Button>
-    );
-  
-    // const userDashBoard = (
-    //   <Stack direction="row" alignItems="center" spacing={1}>
-    //     <AboutButton />
-    //     <Avatar src="./avatar.png" alt={localStorage.getItem("username")} />
-    //     <p className="username-text">{localStorage.getItem("username")}</p>
-    //     <Button variant="text" type="button" onClick={logoutUser}>Logout</Button>
-    //   </Stack>
-    // );
-  
-      return (
-        <Box 
-        sx={{ 
-          flexGrow: 1,
-          bgcolor: 'primary.main', 
-        }}
-        className="main-header"
-        >
-          <AppBar position="static">
-            <Toolbar
-            // disableGutters
-            >
-              
-              <Logo
-              edge="start"
-              />
+    >
+      Upload
+    </Button>
+  );
 
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{textAlign: "left"}}>
-                XFlix
-              </Typography>
+  // const userDashBoard = (
+  //   <Stack direction="row" alignItems="center" spacing={1}>
+  //     <AboutButton />
+  //     <Avatar src="./avatar.png" alt={localStorage.getItem("username")} />
+  //     <p className="username-text">{localStorage.getItem("username")}</p>
+  //     <Button variant="text" type="button" onClick={logoutUser}>Logout</Button>
+  //   </Stack>
+  // );
 
-              {children}
+  return (
+    <Box
+      sx={{
+        flexGrow: 1,
+        bgcolor: "primary.main",
+      }}
+      className="main-header"
+    >
+      <Stack direction="row" justifyContent="space-between" padding={2}>
+        <Logo edge="start" />
 
-              {showUploadButton && <UploadButton />}
-            
-            </Toolbar>
+        {children}
 
-          </AppBar>
-      </Box>
-      );
-  };
-  
-  export default Header;
+        {showUploadButton && <UploadButton />}
+      </Stack>
+    </Box>
+  );
+};
+
+export default Header;
