@@ -57,7 +57,7 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-const SearchBar = (
+const SearchBar = ({search, handleSearchChange}) => (
     <Search sx={{
         justifySelf: 'center',
         alignSelf: 'center',
@@ -68,6 +68,8 @@ const SearchBar = (
 
         <StyledInputBase
         placeholder="Search…"
+        value={search}
+        onChange={handleSearchChange}
         inputProps={{ 'aria-label': 'search' }}
         />
     </Search>

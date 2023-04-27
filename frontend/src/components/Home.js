@@ -2,7 +2,6 @@ import './Home.css';
 import Header from './Header';
 import GenrePanel from './GenrePanel';
 import VideoPanel from './VideoPanel';
-import VideoPlayer from './VideoPlayer';
 import UploadForm from './UploadForm';
 import SearchBar from './SearchBar';
 import Box from '@mui/material/Box';
@@ -16,13 +15,46 @@ function Home()  {
     const genres = ["All", "Education", "Sports", "Comedy", "Lifestyle"];
     const ratings = ["Anyone", "7+", "12+", "16+", "18+"];
 
+    const [search, setSearch] = useState("");
     const [videos, setVideos] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
     const [currentGenres, setCurrentGenres] = useState([genres[0]]);
     const [currentRating, setCurrentRating] = useState([ratings[0]]);
     const [sortByUploadDate, setSortByUploadDate] = useState(true);
-
     const [showUploadForm, setUploadForm] = useState(false);
 
+
+    useEffect(async () => {
+      fetchVideos();
+    }, [currentGenres, currentRating]);
+
+    useEffect(async () => {
+      fetchVideos();
+    }, [sortByUploadDate]);
+
+    useEffect(() => {
+      handleSearch(search);
+    }, [search])
+
+    const handleSearchChange = (e) => {
+      setSearch(e.target.value);
+    }
+
+    const handleSearch = (search) => {
+      
+      if (search.length === 0) {
+        setSearchResults([]);
+        return;
+      }
+      
+      const searchPattern = new RegExp(search, "i");
+
+      const filteredVideos = videos.filter((video) => {
+        return video.title.search(searchPattern) !== -1;
+      })
+
+      setSearchResults(filteredVideos);
+    }
 
     function handleOpenUploadForm() {
       setUploadForm(true);
@@ -83,13 +115,7 @@ function Home()  {
     //   setVideos(applyFilters(Videos.data));
     // })
 
-    useEffect(async () => {
-      fetchVideos();
-    }, [currentGenres, currentRating]);
-
-    useEffect(async () => {
-      fetchVideos();
-    }, [sortByUploadDate]);
+    
 
     /*
     Load Videos from API
@@ -108,7 +134,7 @@ function Home()  {
       }}
       >
         
-        <Header children={SearchBar} handleOpenUploadForm={handleOpenUploadForm} showUploadButton />
+        <Header children={SearchBar({search, handleSearchChange})} handleOpenUploadForm={handleOpenUploadForm} showUploadButton />
         
         <GenrePanel
         genres={genres}
@@ -122,7 +148,7 @@ function Home()  {
         />
         
         <VideoPanel
-        videos={videos}
+        videos={search.length === 0 ? videos : searchResults}
         />
 
         {showUploadForm && <UploadForm open={showUploadForm} handleClose={handleCloseUploadForm} />}

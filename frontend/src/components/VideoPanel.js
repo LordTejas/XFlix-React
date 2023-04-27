@@ -13,7 +13,7 @@ import CardContent from '@mui/material/CardContent';
 
 export default function VideoPanel({videos}) {
 
-    const VideoCard = ({_id, title, releaseDate, contentRating, previewImage}) => {
+    const VideoCard = ({id, title, releaseDate, contentRating, previewImage}) => {
 
         return (
 
@@ -34,7 +34,7 @@ export default function VideoPanel({videos}) {
             // </Card>
 
             <Link
-            href={`/video/${_id}`}>
+            href={`/video/${id}`}>
                 <Box
                 sx={{
                     color: 'common.white',
@@ -64,7 +64,7 @@ export default function VideoPanel({videos}) {
             md={4}
             lg={3}
             className="video-tab"
-            key={video._id}
+            key={video.id}
             >
                {VideoCard(video)}
             </Grid>
