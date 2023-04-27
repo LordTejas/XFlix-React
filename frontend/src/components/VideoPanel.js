@@ -34,7 +34,8 @@ export default function VideoPanel({videos}) {
             // </Card>
 
             <Link
-            href={`/video/${id}`}>
+            href={`/video/${id}`}
+            className="video-tile-link">
                 <Box
                 sx={{
                     color: 'common.white',
@@ -47,7 +48,7 @@ export default function VideoPanel({videos}) {
                     className="video-card-thumbnail"
                     />
 
-                    <Typography variant="h6" className="video-card-title"> {title} </Typography>
+                    <Typography variant="h6" className="video-card-title video-tile"> {title} </Typography>
 
                     <Typography variant="caption" className="video-card-timestamp"> {contentRating} • {releaseDate} </Typography>
 

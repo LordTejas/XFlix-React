@@ -29,6 +29,7 @@ const Header = ({ children, handleOpenUploadForm, showUploadButton }) => {
 
   const UploadButton = () => (
     <Button
+      id="upload-btn"
       sx={{
         color: "button.contrastText",
         bgcolor: "button.main",

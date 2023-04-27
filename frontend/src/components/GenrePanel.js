@@ -18,7 +18,7 @@ export default function GenrePanel({genres,
 
         return (
             <Box
-            className={(currentGenres.includes(genre)) ? "radio-item-selected" : "radio-item"}
+            className={(currentGenres.includes(genre)) ? "radio-item-selected genre-btn" : "radio-item genre-btn"}
             id={`genre-${genre}`}
             key={genre}
             >
@@ -31,7 +31,7 @@ export default function GenrePanel({genres,
 
         return (
             <Box
-            className={(currentRating === rating) ? "radio-item-selected" : "radio-item"}
+            className={(currentRating === rating) ? "radio-item-selected content-rating-btn" : "radio-item content-rating-btn"}
             id={`rating-${rating}`}
             key={rating}
             >
