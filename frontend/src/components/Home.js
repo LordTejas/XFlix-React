@@ -24,11 +24,12 @@ function Home()  {
     const [showUploadForm, setUploadForm] = useState(false);
 
 
-    useEffect(async () => {
+    useEffect(() => {
+      if (currentGenres.length === 0) setCurrentGenres([genres[0]]);
       fetchVideos();
     }, [currentGenres, currentRating]);
 
-    useEffect(async () => {
+    useEffect(() => {
       fetchVideos();
     }, [sortByUploadDate]);
 
@@ -111,19 +112,6 @@ function Home()  {
       return videos;
     }
 
-    // useEffect((currentGenres) => {
-    //   setVideos(applyFilters(Videos.data));
-    // })
-
-    
-
-    /*
-    Load Videos from API
-    simulation
-    */
-  //  useEffect((videos) => {
-    
-  //  });
 
 
     return (

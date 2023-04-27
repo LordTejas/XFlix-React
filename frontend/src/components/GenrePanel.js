@@ -18,7 +18,6 @@ export default function GenrePanel({genres,
 
         return (
             <Box
-            
             className={(currentGenres.includes(genre)) ? "radio-item-selected" : "radio-item"}
             id={`genre-${genre}`}
             key={genre}
