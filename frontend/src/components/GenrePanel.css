@@ -37,9 +37,8 @@
     position: absolute;
     top: 1rem;
     right: 10vw;
-    width: 30ch;
+    width: 26ch;
     background-color: snow !important;
-    border-radius: 2rem;
     font-size: 1rem;
     font-weight: 500;
     text-transform: capitalize;

@@ -10,8 +10,7 @@ import XflixLogo from "../assets/X.png";
 
 const Header = ({ children, handleOpenUploadForm, showUploadButton }) => {
   const Logo = () => (
-    <Link
-    href="/">
+    <Link href="/">
       <Stack direction="row" justifyContent="center">
         <Avatar
           alt="XFlix"

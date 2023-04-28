@@ -1,113 +1,97 @@
-import './VideoPlayer.css';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import { useState, useEffect } from 'react';
+import "./VideoPlayer.css";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import Typography from "@mui/material/Typography";
 
-import Videos from '../data/videos';
-import { alignProperty } from '@mui/material/styles/cssUtils';
-import { Typography } from '@mui/material';
+function VideoPlayer({ title, releaseDate, videoLink, contentRating, votes }) {
+  const fetchEmbeddedUrl = (url) => {
+    let newUrl = "https://www.youtube.com/embed/";
 
+    let extractedVideoHash = url.match(/watch\?v=(?<vHash>[\w-]+)&/);
 
-function VideoPlayer({title, releaseDate, videoLink, contentRating, votes}) {
+    newUrl += extractedVideoHash.groups["vHash"];
 
-    const fetchEmbeddedUrl = (url) => {
+    // console.log(url, newUrl, extractedVideoHash.groups);
 
-        let newUrl = "https://www.youtube.com/embed/";
+    return newUrl;
+  };
 
-        let extractedVideoHash = url.match(/watch\?v=(?<vHash>[\w-]+)&/);
+  const UpVoteButton = () => (
+    <Button
+      sx={{
+        color: "common.white",
+        bgcolor: "button.main",
+        "&:hover": {
+          bgcolor: "button.dark",
+        },
+      }}
+      variant="contained"
+      startIcon={<ThumbUpIcon />}
+    >
+      {votes.upVotes}
+    </Button>
+  );
 
-        newUrl += extractedVideoHash.groups["vHash"];
+  const DownVoteButton = () => (
+    <Button
+      sx={{
+        marginLeft: "1rem",
+        color: "common.white",
+        bgcolor: "button.main",
+        "&:hover": {
+          bgcolor: "button.dark",
+        },
+      }}
+      variant="contained"
+      startIcon={<ThumbDownIcon />}
+    >
+      {votes.downVotes}
+    </Button>
+  );
 
-        // console.log(url, newUrl, extractedVideoHash.groups);
+  return (
+    <Box
+      sx={{
+        color: "primary.contrastText",
+        bgcolor: "primary.dark",
+      }}
+      className="video-player"
+      py={4}
+    >
+      <iframe
+        className="video-frame"
+        src={"https://" + videoLink}
+        title={title}
+        frameBorder="0"
+        allowFullScreen
+        ng-show="showvideo"
+      ></iframe>
 
-        return newUrl
-    }
-
-    const UpVoteButton = () => (
-        <Button
+      <Box
+        className="video-action-area"
         sx={{
-            color: 'common.white',
-            bgcolor: 'button.main',
-            "&:hover": {
-                bgcolor: 'button.dark',
-              },
-        }} 
-        variant="contained"
-        startIcon={<ThumbUpIcon />}
-        >
-        {votes.upVotes}
-        </Button>
-    );
-
-    const DownVoteButton = () => (
-        <Button 
-        sx={{
-            marginLeft: '1rem',
-            color: 'common.white',
-            bgcolor: 'button.main',
-            "&:hover": {
-                bgcolor: 'button.dark',
-              },
-        }} 
-        variant="contained"
-        startIcon={<ThumbDownIcon />}
-        > 
-        {votes.downVotes}
-        </Button>
-    );
-
-    return (
-        <Box 
-        sx={{
-            color: 'primary.contrastText',
-            bgcolor: 'primary.dark', 
+          borderBottom: "1px solid white",
         }}
-        className="video-player"
-        py={4}
-        >
-            
-            <iframe 
-            className="video-frame"
-            src={"https://" + videoLink}
-            title={title}
-            frameBorder="0" 
-            allowFullScreen 
-            ng-show="showvideo">
-            </iframe>
+      >
+        <Box className="video-action-description">
+          <Typography variant="h5" className="video-title">
+            {title}
+          </Typography>
 
-            <Box
-            className="video-action-area"
-            sx={{
-                borderBottom: "1px solid white",
-            }}
-            >
-            
-                <Box
-                className="video-action-description"
-                >
-
-                    <Typography variant="h5" className="video-title">{title}</Typography>
-
-                    <Typography variant="caption" className="video-desc">{contentRating + " • " + releaseDate}</Typography>
-
-                </Box>
-
-                <Box
-                className="video-action-vote"
-                >
-                    <UpVoteButton />
-                    <DownVoteButton />
-                </Box>
-
-
-            </Box>
-
-            
+          <Typography variant="caption" className="video-desc">
+            {contentRating + " • " + releaseDate}
+          </Typography>
         </Box>
-    );
+
+        <Box className="video-action-vote">
+          <UpVoteButton />
+          <DownVoteButton />
+        </Box>
+      </Box>
+    </Box>
+  );
 }
 
 export default VideoPlayer;
