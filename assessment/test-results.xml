@@ -1,94 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="141.955" tests="11" failures="6">
-  <testsuite name="Root Suite" timestamp="2023-04-27T15:24:44" tests="0" file="specs/homePageSpec.js" time="0.000" failures="0">
+<testsuites name="Mocha Tests" time="86.718" tests="11" failures="3">
+  <testsuite name="Root Suite" timestamp="2023-04-28T17:10:11" tests="0" file="specs/homePageSpec.js" time="0.000" failures="0">
   </testsuite>
-  <testsuite name="XFlix" timestamp="2023-04-27T15:24:44" tests="11" time="141.851" failures="6">
-    <testcase name="XFlix should display 5 genre buttons on a row" time="13.852" classname="should display 5 genre buttons on a row">
+  <testsuite name="XFlix" timestamp="2023-04-28T17:10:11" tests="11" time="86.647" failures="3">
+    <testcase name="XFlix should display 5 genre buttons on a row" time="7.371" classname="should display 5 genre buttons on a row">
     </testcase>
-    <testcase name="XFlix should display 5 content rating buttons on a row" time="1.174" classname="should display 5 content rating buttons on a row">
+    <testcase name="XFlix should display 5 content rating buttons on a row" time="1.304" classname="should display 5 content rating buttons on a row">
     </testcase>
-    <testcase name="XFlix should not have same parent for genre and content rating buttons" time="0.950" classname="should not have same parent for genre and content rating buttons">
+    <testcase name="XFlix should not have same parent for genre and content rating buttons" time="1.359" classname="should not have same parent for genre and content rating buttons">
     </testcase>
-    <testcase name="XFlix should not have &quot;View Count&quot; option selected in sort by dropdown on page load" time="6.307" classname="should not have &quot;View Count&quot; option selected in sort by dropdown on page load">
+    <testcase name="XFlix should not have &quot;View Count&quot; option selected in sort by dropdown on page load" time="6.187" classname="should not have &quot;View Count&quot; option selected in sort by dropdown on page load">
       <failure message="Timed out retrying after 4000ms: Expected to find element: `#view-count-option`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `#view-count-option`, but never found it.
     at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:340:35)]]></failure>
     </testcase>
-    <testcase name="XFlix should have &quot;Release Date&quot; option selected in sort by dropdown on page load" time="5.887" classname="should have &quot;Release Date&quot; option selected in sort by dropdown on page load">
+    <testcase name="XFlix should have &quot;Release Date&quot; option selected in sort by dropdown on page load" time="6.315" classname="should have &quot;Release Date&quot; option selected in sort by dropdown on page load">
       <failure message="Timed out retrying after 4000ms: Expected to find element: `#release-date-option`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `#release-date-option`, but never found it.
     at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:343:37)]]></failure>
     </testcase>
-    <testcase name="XFlix should have &quot;View Count&quot; option selectable after clicking on the sort by dropdown" time="5.833" classname="should have &quot;View Count&quot; option selectable after clicking on the sort by dropdown">
-      <failure message="Timed out retrying after 4000ms: Expected to find element: `.sort-select`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.sort-select`, but never found it.
-    at Object.sortBy (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:245:15)
-    at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:346:23)]]></failure>
-    </testcase>
-    <testcase name="XFlix should have &quot;Upload&quot; button on landing page on load" time="1.495" classname="should have &quot;Upload&quot; button on landing page on load">
-    </testcase>
-    <testcase name="XFlix should open video modal with &quot;Submit&quot; and &quot;Cancel&quot; buttons, on clicking &quot;Upload&quot; button" time="6.285" classname="should open video modal with &quot;Submit&quot; and &quot;Cancel&quot; buttons, on clicking &quot;Upload&quot; button">
-      <failure message="Timed out retrying after 4000ms: Expected to find element: `#upload-btn-cancel`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `#upload-btn-cancel`, but never found it.
-    at Object.modalCancelButton (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:269:15)
-    at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:358:23)]]></failure>
-    </testcase>
-    <testcase name="XFlix should open video modal on clicking &quot;Upload&quot; button and close it on clicking &quot;Cancel&quot; button in the modal" time="8.225" classname="should open video modal on clicking &quot;Upload&quot; button and close it on clicking &quot;Cancel&quot; button in the modal">
-      <failure message="Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.
+    <testcase name="XFlix should have &quot;View Count&quot; option selectable after clicking on the sort by dropdown" time="4.067" classname="should have &quot;View Count&quot; option selectable after clicking on the sort by dropdown">
+      <failure message="`cy.select()` can only be called on a `&lt;select&gt;`. Your subject is a: `&lt;div class=&quot;MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall sort-select css-nwk8qo-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root&quot;&gt;...&lt;/div&gt;`
 
-`&lt;button class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium install-button css-d8hx0k-MuiButtonBase-root-MuiButton-root&quot; tabindex=&quot;0&quot; type=&quot;button&quot; id=&quot;upload-btn&quot; aria-label=&quot;menu&quot;&gt;...&lt;/button&gt;`
+https://on.cypress.io/select" type="CypressError"><![CDATA[CypressError: `cy.select()` can only be called on a `<select>`. Your subject is a: `<div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall sort-select css-nwk8qo-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root">...</div>`
 
-Cypress requires elements be attached in the DOM to interact with them.
-
-The previous command that ran was:
-
-  &gt; `cy.get()`
-
-This DOM element likely became detached somewhere between the previous and current command.
-
-Common situations why this happens:
-  - Your JS framework re-rendered asynchronously
-  - Your app code reacted to an event firing and removed the element
-
-You typically need to re-query for the element or add &apos;guards&apos; which delay Cypress from running new commands.
-
-https://on.cypress.io/element-has-detached-from-dom" type="CypressError"><![CDATA[CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.
-
-`<button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium install-button css-d8hx0k-MuiButtonBase-root-MuiButton-root" tabindex="0" type="button" id="upload-btn" aria-label="menu">...</button>`
-
-Cypress requires elements be attached in the DOM to interact with them.
-
-The previous command that ran was:
-
-  > `cy.get()`
-
-This DOM element likely became detached somewhere between the previous and current command.
-
-Common situations why this happens:
-  - Your JS framework re-rendered asynchronously
-  - Your app code reacted to an event firing and removed the element
-
-You typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.
-
-https://on.cypress.io/element-has-detached-from-dom
-    at $Cy.ensureAttached (http://localhost:8081/__cypress/runner/cypress_runner.js:163831:76)
-    at runAllChecks (http://localhost:8081/__cypress/runner/cypress_runner.js:150589:12)
-    at retryActionability (http://localhost:8081/__cypress/runner/cypress_runner.js:150669:16)
-    at tryCatcher (http://localhost:8081/__cypress/runner/cypress_runner.js:13196:23)
-    at Function.Promise.attempt.Promise.try (http://localhost:8081/__cypress/runner/cypress_runner.js:10470:29)
-    at whenStable (http://localhost:8081/__cypress/runner/cypress_runner.js:168695:63)
-    at http://localhost:8081/__cypress/runner/cypress_runner.js:168192:14
-    at tryCatcher (http://localhost:8081/__cypress/runner/cypress_runner.js:13196:23)
-    at Promise._settlePromiseFromHandler (http://localhost:8081/__cypress/runner/cypress_runner.js:11131:31)
-    at Promise._settlePromise (http://localhost:8081/__cypress/runner/cypress_runner.js:11188:18)
-    at Promise._settlePromise0 (http://localhost:8081/__cypress/runner/cypress_runner.js:11233:10)
-    at Promise._settlePromises (http://localhost:8081/__cypress/runner/cypress_runner.js:11313:18)
-    at Promise._fulfill (http://localhost:8081/__cypress/runner/cypress_runner.js:11257:18)
-    at http://localhost:8081/__cypress/runner/cypress_runner.js:12871:46
+https://on.cypress.io/select
+    at Context.select (http://localhost:8081/__cypress/runner/cypress_runner.js:153680:78)
+    at Context.<anonymous> (http://localhost:8081/__cypress/runner/cypress_runner.js:173116:19)
 From Your Spec Code:
-    at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:365:38)]]></failure>
+    at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:346:32)]]></failure>
     </testcase>
-    <testcase name="XFlix should have at least 10 links (with class &quot;video-tile-link&quot;) to different videos on page load." time="3.985" classname="should have at least 10 links (with class &quot;video-tile-link&quot;) to different videos on page load.">
+    <testcase name="XFlix should have &quot;Upload&quot; button on landing page on load" time="1.393" classname="should have &quot;Upload&quot; button on landing page on load">
     </testcase>
-    <testcase name="XFlix should display the video page on clicking the first video tile (with class &quot;video-tile&quot;) which has a parent element with class &quot;video-tile-link&quot;" time="6.580" classname="should display the video page on clicking the first video tile (with class &quot;video-tile&quot;) which has a parent element with class &quot;video-tile-link&quot;">
-      <failure message="Timed out retrying after 4000ms: Expected to find element: `.video-tile-link &gt; .video-tile`, but never found it." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: Expected to find element: `.video-tile-link > .video-tile`, but never found it.
-    at Context.eval (http://localhost:8081/__cypress/tests?p=specs/homePageSpec.js:381:19)]]></failure>
+    <testcase name="XFlix should open video modal with &quot;Submit&quot; and &quot;Cancel&quot; buttons, on clicking &quot;Upload&quot; button" time="5.787" classname="should open video modal with &quot;Submit&quot; and &quot;Cancel&quot; buttons, on clicking &quot;Upload&quot; button">
+    </testcase>
+    <testcase name="XFlix should open video modal on clicking &quot;Upload&quot; button and close it on clicking &quot;Cancel&quot; button in the modal" time="5.837" classname="should open video modal on clicking &quot;Upload&quot; button and close it on clicking &quot;Cancel&quot; button in the modal">
+    </testcase>
+    <testcase name="XFlix should have at least 10 links (with class &quot;video-tile-link&quot;) to different videos on page load." time="4.922" classname="should have at least 10 links (with class &quot;video-tile-link&quot;) to different videos on page load.">
+    </testcase>
+    <testcase name="XFlix should display the video page on clicking the first video tile (with class &quot;video-tile&quot;) which has a parent element with class &quot;video-tile-link&quot;" time="5.612" classname="should display the video page on clicking the first video tile (with class &quot;video-tile&quot;) which has a parent element with class &quot;video-tile-link&quot;">
     </testcase>
   </testsuite>
 </testsuites>

@@ -2,6 +2,10 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engine": {
+    "node": "v16.x.x",
+    "npm": "v8.x.x"
+  },
   "dependencies": {
     "@babel/core": "^7.17.10",
     "@babel/plugin-syntax-flow": "^7.14.5",

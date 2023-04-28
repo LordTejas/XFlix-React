@@ -1,10 +1,10 @@
+import "./GenrePanel.css";
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import "./GenrePanel.css";
 
 export default function GenrePanel({
   genres,
@@ -78,7 +78,8 @@ export default function GenrePanel({
       <Box
         className="radio-container"
         onClick={(e) => {
-          const genre = e.target.id.split("-")[1];
+          console.log(currentGenres)
+          const genre = e.target.id;
           if (currentGenres.includes(genre)) {
             setCurrentGenres(
               currentGenres.filter((currGenre) => currGenre !== genre)
@@ -101,7 +102,7 @@ export default function GenrePanel({
       <Box
         className="radio-container"
         onClick={(e) => {
-          const rating = e.target.id.split("-")[1];
+          const rating = e.target.id;
           rating && setCurrentRating(rating);
         }}
       >
